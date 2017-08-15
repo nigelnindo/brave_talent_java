@@ -3,12 +3,12 @@ package com.nindo.app.extractor;
 /**
  * Created by nigelnindo on 8/15/17.
  */
-public class PlatePrefix {
+public class PlatePrefixModel {
 
     String word;
     int index;
 
-    public PlatePrefix(String word, int index){
+    public PlatePrefixModel(String word, int index){
         this.word = word;
         this.index = index;
     }

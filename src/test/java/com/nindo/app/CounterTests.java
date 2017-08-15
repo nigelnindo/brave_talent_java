@@ -9,8 +9,6 @@ import junit.framework.TestCase;
  */
 public class CounterTests extends TestCase {
 
-    Counter counter = new Counter();
-
     /**
      * Create the test case
      *
@@ -28,7 +26,7 @@ public class CounterTests extends TestCase {
 
     public void testInvalidInputs(){
         // make sure that both plates supplies are valid Kenyan plates
-        assertEquals( (Integer) 0, counter.getDifference("KBA 123J","KAY F237"));
+        assertEquals( (Integer) 0, Counter.getDifference("KBA 123J","KAY F237"));
     }
 
     public void testCount(){
@@ -41,11 +39,11 @@ public class CounterTests extends TestCase {
          * -> moving to first letter of 'prefix should result in a difference of one
          */
 
-        assertEquals( (Integer) 0, counter.getDifference("KBA 049A","KBA 050A"));
-        assertEquals( (Integer) 48, counter.getDifference("KBE 050A","KBE 098A"));
-        assertEquals( (Integer) 200, counter.getDifference("KBD 050A","KBD 250A"));
-        assertEquals( (Integer) 1, counter.getDifference("KAA 999A","KAA 001B"));
-        assertEquals( (Integer) 1, counter.getDifference("KAA 999Z","KAB 001A"));
+        assertEquals( (Integer) 1, Counter.getDifference("KBA 049A","KBA 050A"));
+        assertEquals( (Integer) 48, Counter.getDifference("KBE 050A","KBE 098A"));
+        assertEquals( (Integer) 200, Counter.getDifference("KBD 050A","KBD 250A"));
+        assertEquals( (Integer) 1, Counter.getDifference("KAA 999A","KAA 001B"));
+        assertEquals( (Integer) 1, Counter.getDifference("KAA 999Z","KAB 001A"));
 
     }
 

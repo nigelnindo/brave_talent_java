@@ -31,12 +31,12 @@ public class ExtractorTests extends TestCase {
 
     public void testTruePositive(){
         // should get the explicit number plate in the sentence
-        assertEquals( "KCA 199A", extractor.extract("I saw a KCA 199A on the highway"));
+        assertEquals( "KCA 199A", extractor.extract("I saw a KCA 199A on the highway").formatPlate());
     }
 
     public void testCaseInsensitive(){
         // should extract the number plate even whether in upper/lower/mixed case
-        assertEquals( "KBA 951J", extractor.extract("Mercy just bought kBA 951j"));
+        assertEquals( "KBA 951J", extractor.extract("Mercy just bought kBA 951j").formatPlate());
     }
 
     public void testInvalidNumberPlates(){
@@ -45,19 +45,19 @@ public class ExtractorTests extends TestCase {
          * -> should fail if any of first three characters in plate suffix is a string
          * -> should fail if any of the characters in plate suffix is a number
          */
-        assertEquals( NEGATIVE_RESULT, extractor.extract("KBA 9511 was bought by Mercy"));
-        assertEquals( NEGATIVE_RESULT, extractor.extract("KBA 9A5J was bought by Mercy"));
-        assertEquals( NEGATIVE_RESULT, extractor.extract("KB3 951J was bought by Mercy"));
+        assertEquals( NEGATIVE_RESULT, extractor.extract("KBA 9511 was bought by Mercy").formatPlate());
+        assertEquals( NEGATIVE_RESULT, extractor.extract("KBA 9A5J was bought by Mercy").formatPlate());
+        assertEquals( NEGATIVE_RESULT, extractor.extract("KB3 951J was bought by Mercy").formatPlate());
     }
 
     public void testNoNumberPlateInSentence(){
         // should not return any plate if there isn't a plate in the sentence
-        assertEquals( NEGATIVE_RESULT, extractor.extract("She sells sea shells at the sea shore"));
+        assertEquals( NEGATIVE_RESULT, extractor.extract("She sells sea shells at the sea shore").formatPlate());
     }
 
     public void testTwoPositivePlatePrefixes(){
         // should ignore 'Ken', which is a positive prefix, but is a name
-        assertEquals( "KBC 367A", extractor.extract("Yesterday, Ken was driving a KBC 367A"));
+        assertEquals( "KBC 367A", extractor.extract("Yesterday, Ken was driving a KBC 367A").formatPlate());
     }
 
 

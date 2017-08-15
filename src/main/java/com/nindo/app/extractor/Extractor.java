@@ -4,8 +4,12 @@ package com.nindo.app.extractor;
  * Created by nigelnindo on 8/15/17.
  */
 public class Extractor {
-    public String extract(String sentence){
-        return searchForPlate(splitSentence(sentence)).toUpperCase();
+    public Plate extract(String sentence){
+        if ("".equals(sentence)){
+            //empty string
+            return new Plate("NO","PLATE");
+        }
+        return searchForPlate(splitSentence(sentence));
     }
 
     public String[] splitSentence(String sentence){
@@ -14,7 +18,7 @@ public class Extractor {
             // You may want to check for a non-word character before blindly
             // performing a replacement
             // It may also be necessary to adjust the character class
-            words[i] = words[i].replaceAll("[^\\w]", "");
+            words[i] = words[i].replaceAll("[^\\w]", "").toUpperCase();
         }
         return words;
     }
@@ -36,7 +40,7 @@ public class Extractor {
         } else if (! String.valueOf(word.charAt(3)).matches(".*[a-zA-Z]+.*")){
             System.out.println("Last character not digit");
             return false;
-        } else if (! word.substring(0,2).matches("[0-9]+")){
+        } else if (! word.substring(0,3).matches("[0-9]+")){
             System.out.println("First 3 chars not numbers");
             System.out.println(word.substring(0,3));
             return false;
@@ -44,8 +48,8 @@ public class Extractor {
         return true;
     }
 
-    public String searchForPlate(String[] wordList){
-        PlatePrefix platePrefix = new PlatePrefix("",0);
+    public Plate searchForPlate(String[] wordList){
+        PlatePrefixModel platePrefix = new PlatePrefixModel("",0);
         String plateSuffix = "";
         String result = "NO PLATE";
 
@@ -79,11 +83,11 @@ public class Extractor {
             }
         }
         if (!"".equals(plateSuffix)){
-            return platePrefix.getWord() + " " + plateSuffix;
+            return new Plate(platePrefix.getWord(), plateSuffix);
         }
         System.out.println(platePrefix.getWord());
         System.out.println(plateSuffix);
-        return result;
+        return new Plate("NO","PLATE");
     }
 
 }
