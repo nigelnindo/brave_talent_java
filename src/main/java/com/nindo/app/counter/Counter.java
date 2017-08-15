@@ -26,6 +26,7 @@ public class Counter {
         }
     }
 
+    /*
     public static int compute(PlateCounterModel plateCounter){
         int secondPrefix = plateCounter.secondPrefix;
         if (plateCounter.firstPrefix > 1){
@@ -34,6 +35,7 @@ public class Counter {
         int suffixValue = (plateCounter.firstSuffix + (999 * (plateCounter.secondSuffix - 1)));
         return (plateCounter.firstPrefix * secondPrefix * MAX_CONSTANT) - (MAX_CONSTANT - suffixValue);
     }
+    */
 
     public static int compute2(PlateCounterModel plateCounter){
         return (

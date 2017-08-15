@@ -43,6 +43,7 @@ public class CounterTests extends TestCase {
         assertEquals( (Integer) 48, Counter.getDifference("KBE 050A","KBE 098A"));
         assertEquals( (Integer) 200, Counter.getDifference("KBD 050A","KBD 250A"));
         assertEquals( (Integer) 1, Counter.getDifference("KAA 999A","KAA 001B"));
+        assertEquals( (Integer) 1, Counter.getDifference("KAA 999Z","KAB 001A"));
         assertEquals( (Integer) 1, Counter.getDifference("KAZ 999Z","KBA 001A"));
 
     }
