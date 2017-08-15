@@ -38,11 +38,11 @@ public class Extractor {
         if (word.length() != 4){
             return false;
         } else if (! String.valueOf(word.charAt(3)).matches(".*[a-zA-Z]+.*")){
-            System.out.println("Last character not digit");
+            //System.out.println("Last character not digit");
             return false;
         } else if (! word.substring(0,3).matches("[0-9]+")){
-            System.out.println("First 3 chars not numbers");
-            System.out.println(word.substring(0,3));
+            //System.out.println("First 3 chars not numbers");
+            //System.out.println(word.substring(0,3));
             return false;
         }
         return true;
@@ -54,23 +54,23 @@ public class Extractor {
         String result = "NO PLATE";
 
         for (int x = 0 ; x < wordList.length ; x++){
-            System.out.println("Run loop");
-            System.out.println(x);
-            System.out.println(platePrefix.index);
+            //System.out.println("Run loop");
+            //System.out.println(x);
+            //System.out.println(platePrefix.index);
             if("".equals(platePrefix.getWord())){
-                System.out.println("prefix is empty");
+                //System.out.println("prefix is empty");
                 if (isPlatePrefix(wordList[x])){
-                    System.out.println("Set plate prefix");
+                    //System.out.println("Set plate prefix");
                     platePrefix.setWord(wordList[x]);
                     platePrefix.setIndex(x);
                 }
             } else{
                 if ("".equals(plateSuffix)){
-                    System.out.println("Plate suffix is empty");
+                    //System.out.println("Plate suffix is empty");
                     if (x - platePrefix.getIndex() == 1){
-                        System.out.print("At correct index to search for plate suffix");
+                        //System.out.print("At correct index to search for plate suffix");
                         if (isPlateSuffix(wordList[x])){
-                            System.out.println("Set plate suffix");
+                            //System.out.println("Set plate suffix");
                             plateSuffix = wordList[x];
                         }
                     } else {
@@ -85,8 +85,8 @@ public class Extractor {
         if (!"".equals(plateSuffix)){
             return new Plate(platePrefix.getWord(), plateSuffix);
         }
-        System.out.println(platePrefix.getWord());
-        System.out.println(plateSuffix);
+        //System.out.println(platePrefix.getWord());
+        //System.out.println(plateSuffix);
         return new Plate("NO","PLATE");
     }
 

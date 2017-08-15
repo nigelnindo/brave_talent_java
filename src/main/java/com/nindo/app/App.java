@@ -14,9 +14,9 @@ public class App
 {
     public static void main( String[] args )
     {
+        Extractor extractor = new Extractor();
         /*
         System.out.println( "Hello World!" );
-        Extractor extractor = new Extractor();
         Plate extractedPlate = extractor.extract("Mercy just bought kBA 951j");
         System.out.println(extractedPlate.formatPlate());
         PlateCounterModel counter = extractedPlate.createPlateCounter();
@@ -26,6 +26,9 @@ public class App
             System.out.print("We had an invalid counter.");
         }
         */
-        System.out.println(Counter.getDifference("KBA 001A","KBA 005A"));
+        System.out.println(Counter.compute2(extractor.extract("KAY 999Z").createPlateCounter()));
+        System.out.println(Counter.compute2(extractor.extract("KAZ 001A").createPlateCounter()));
+        System.out.println(Counter.compute2(extractor.extract("KAZ 999Z").createPlateCounter()));
+        System.out.println(Counter.compute2(extractor.extract("KBA 001A").createPlateCounter()));
     }
 }
