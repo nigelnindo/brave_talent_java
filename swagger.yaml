@@ -18,7 +18,7 @@ paths:
     get:
       summary: Extract number plate.
       description: |
-        Prived a sentence and the extractor will get the number plate from it.
+        Privide a sentence and the extractor will get the number plate from it.
       parameters:
         - name: sentence
           in: query
