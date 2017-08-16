@@ -41,3 +41,7 @@ mvn package
 ```shell
 mvn test
 ```
+
+## Class diagram
+
+[Open](https://github.com/nigelnindo/brave_talent_java/blob/develop/Class_Diagram.png) `Class_Diagram.png`
