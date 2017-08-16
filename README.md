@@ -4,7 +4,7 @@ Java Project for Brave Talent developer test.
 
 ## REST API documentation
 
-Copy [the](https://github.com/nigelnindo/brave_talent_java/blob/develop/swagger.yaml) contents of the Swagger YAML file into s Swagger Editor of your choice. If you don't have one, use the online editor found [here](https://editor2.swagger.io/). This it will then auto-generate the formatted documentation for you.
+Copy [the](https://github.com/nigelnindo/brave_talent_java/blob/master/swagger.yaml) contents of the Swagger YAML file into s Swagger Editor of your choice. If you don't have one, use the online editor found [here](https://editor2.swagger.io/). This it will then auto-generate the formatted documentation for you.
 
 ## Docker
 
@@ -26,7 +26,7 @@ Visit localhost:8080 on your browser.
 
 ## Build from Source
 
-Requires that you have [Maven](https://maven.apache.org/).
+Requires [Maven](https://maven.apache.org/).
 
 ```shell
 # Compile the project 
